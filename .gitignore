@@ -1,0 +1,9 @@
+# Temporary files
+*~
+
+# Text files
+*.dat
+*.log
+
+# Compiled Object files
+

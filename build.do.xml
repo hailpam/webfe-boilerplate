@@ -1,0 +1,62 @@
+<project name="WebFeTemplate" default="dist" basedir=".">
+	
+	<description>Web Front-End Project Template</description>
+	
+	<loadproperties srcFile="build.do.properties"/>
+	
+	<!-- set global properties for this build -->
+	<property name="prjName" value="${project.name}"/>
+	<property name="prjVer" value="${project.version}"/>
+	<property name="prjDesc" value="${project.description}"/>
+	
+	
+	<property name="build" location="${project.build}"/>
+	<property name="dist"  location="${project.dist}"/>
+	<property name="test"  location="${project.test}"/>
+	<property name="webcontent"  location="${project.webcontent}"/>
+	<property name="assets" location="${project.assets}"/>
+	
+	
+	<target name="init">
+		
+		<echo message="### ${prjName} v${prjVer}: Initializing the build process" />
+		
+		<!-- Create the time stamp -->
+		<tstamp/>
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}/${build.name}"/>
+		<mkdir dir="${build}/html"/>
+		<mkdir dir="${build}/assets"/>
+		<mkdir dir="${dist}/${build.name}"/>
+	</target>
+	
+	<target name="clean"
+			description="clean up" >
+			
+		<echo message="### ${prjName} v${prjVer}: Cleaning up the Project" />
+		
+		<!-- Delete the ${build} and ${dist} directory trees -->
+		<delete dir="${build}/${build.name}"/>
+		<mkdir dir="${build}/html"/>
+		<mkdir dir="${build}/assets"/>
+		<delete dir="${dist}/${build.name}"/>
+	</target>
+	
+	<target name="transfer">
+		
+		<echo message="### ${prjName} v${prjVer}: Transferring the resources" />
+		
+		<!-- Create the time stamp -->
+		<tstamp/>
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}/${build.name}"/>
+		<mkdir dir="${build}/html"/>
+		<mkdir dir="${build}/assets"/>
+		<mkdir dir="${dist}/${build.name}"/>
+	</target>
+	
+	<target name="dist" depends="clean, init, transfer">
+		<echo message="### ${prjName} ${prjVer}: ${prjDesc}" />
+	</target>
+	
+</project>
